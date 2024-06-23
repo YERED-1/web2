@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Me perdonas?</h1>
+    <div class="button-container">
+        <button class="button" id="yes-button">Sí</button>
+        <button class="button" id="no-button">No</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no-button');
+
+        noButton.addEventListener('mouseover', () => {
+            const container = noButton.parentElement;
+            const rect = container.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+
+            let newLeft = Math.random() * (rect.width - buttonRect.width);
+            let newTop = Math.random() * (rect.height - buttonRect.height);
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${newLeft}px`;
+            noButton.style.top = `${newTop}px`;
+        });
+    </script>
+</body>
+</html>
